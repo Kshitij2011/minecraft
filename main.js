@@ -90,4 +90,64 @@ function player_update(){ fabric.Image.fromURL("player.png", function(Img){
                new_image('unique.png');
                console.log("u");
           }
+
+          if(keypressed=='38'){
+               key_up();
+               console.log("when up key is pressed=")
+          }
+
+          if(keypressed=='40'){
+               key_down();
+               console.log("when down key is pressed=")
+          }
+
+          if(keypressed=='37'){
+               key_left();
+               console.log("when left key is pressed=")
+          }
+
+          if(keypressed=='39'){
+               key_right();
+               console.log("when right key is pressed=")
+          }
+}
+
+function key_up(){
+     if(player_y>=0){
+          player_y = player_y - block_image_height;
+          console.log("when up arrow key is pressed value of x =" + player_x + "y = " + player_y);
+          console.log("block image height" + block_image_height);
+          canvas.remove(player_object);
+          player_update();
+     }
+}
+
+function key_down(){
+     if(player_y<=500){
+          player_y = player_y + block_image_height;
+          console.log("when down arrow key is pressed value of x =" + player_x + "y = " + player_y);
+          console.log("block image height" + block_image_height);
+          canvas.remove(player_object);
+          player_update();
+     }
+}
+
+function key_left(){
+     if(player_x>=0){
+          player_x = player_x - block_image_width;
+          console.log("when left arrow key is pressed value of x =" + player_x + "y = " + player_y);
+          console.log("block image width" + block_image_width);
+          canvas.remove(player_object);
+          player_update();
+     }
+}
+
+function key_right(){
+     if(player_x<=750){
+          player_x = player_x + block_image_width;
+          console.log("when right arrow key is pressed value of x =" + player_x + "y = " + player_y);
+          console.log("block image width" + block_image_width);
+          canvas.remove(player_object);
+          player_update();
+     }
 }
